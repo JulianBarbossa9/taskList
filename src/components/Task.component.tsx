@@ -43,7 +43,6 @@ export default function Task({ task }: Props) {
           checked={isChecked}
           onChange={handleCheckboxClic}
           className="w-6 h-6 text-green-600  border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 mb-4"
-          // onClick={() => editTask(task, task.id)}
         />
 
         
