@@ -3,7 +3,15 @@
 import { Task } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { title } from "process";
-import React, { ChangeEvent, SyntheticEvent, cache, use, useContext, useEffect, useState } from "react";
+import React, {
+  ChangeEvent,
+  SyntheticEvent,
+  cache,
+  use,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { GetServerSideProps } from "next";
 import { prisma } from "../../lib/prisma";
 import axios from "axios";
@@ -33,7 +41,7 @@ const FormTask = ({ selectedTask }: Props) => {
   const router = useRouter();
 
   const { loading, submitData, editTask } = useTask(!selectedTask);
-  const [ error, setError ] = useState(false)
+  const [error, setError] = useState(false);
   const [inputValue, setInputValue] = useState<ITask>(
     selectedTask
       ? {
@@ -48,7 +56,6 @@ const FormTask = ({ selectedTask }: Props) => {
         }
   );
 
-
   useEffect(() => {
     if (selectedTask) {
       setInputValue({
@@ -59,22 +66,21 @@ const FormTask = ({ selectedTask }: Props) => {
     }
   }, [selectedTask]);
 
-  const handleSubmit = async(event: SyntheticEvent) => {
-    event.preventDefault()
+  const handleSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
     if (!inputValue.title.trim()) {
       setError(true);
       return;
     }
 
     setError(false);
-    if(selectedTask){
+    if (selectedTask) {
       editTask(inputValue, selectedTask.id);
       router.push("/");
     } else {
-      await submitData(inputValue, setInputValue)
+      await submitData(inputValue, setInputValue);
     }
-    
-  }
+  };
 
   return (
     <div className="md:w-1/2 lg:2-2/5 mx-5 ">
@@ -94,11 +100,11 @@ const FormTask = ({ selectedTask }: Props) => {
         action=""
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10 "
         onSubmit={(event) => {
-          handleSubmit(event)
+          handleSubmit(event);
         }}
       >
         {/* todo: ERROR */}
-        { error && <Error>the title field is required</Error>}
+        {error && <Error>the title field is required</Error>}
         <div className="mb-5">
           <label
             htmlFor="title"
@@ -162,7 +168,6 @@ const FormTask = ({ selectedTask }: Props) => {
         </div>
       </form>
     </div>
-
   );
 };
 
