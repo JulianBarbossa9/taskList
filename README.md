@@ -3,8 +3,10 @@
 > [!IMPORTANT]
 > Have installed one of the following node versions 16.13 / 18.X / 20.X
 
-This project was made with NextJS 13, TailwindCSS, PostgreSQL and Prisma
 
+
+This project was made with NextJS 13, TailwindCSS, PostgreSQL and Prisma
+application link : [task list Julian Barbosa ](https://tasklist-iatf2z373-julianbarbossa19-gmailcom.vercel.app)
 
 ## Installation
 
