@@ -34,7 +34,7 @@ const useTask = (ignoreFetch?: boolean) => {
     try {
       setLoading(true);
       const body = data;
-      const createTask = axios.post("http://localhost:3000/api/task", body);
+      const createTask = axios.post("/api/task", body);
       toast
         .promise(createTask, {
           pending: "Creating Task",
@@ -59,7 +59,7 @@ const useTask = (ignoreFetch?: boolean) => {
     try {
       setLoading(true);
       const editTask = axios.patch(
-        `http://localhost:3000/api/task/${id}`,
+        `/api/task/${id}`,
         data
       );
       toast
@@ -87,7 +87,7 @@ const useTask = (ignoreFetch?: boolean) => {
   const deleteTask = async (id: string) => {
     try {
       setLoading(true);
-      const deleteTask = axios.delete(`http://localhost:3000/api/task/${id}`);
+      const deleteTask = axios.delete(`/api/task/${id}`);
       toast
         .promise(deleteTask, {
           pending: "Deleting Task",
