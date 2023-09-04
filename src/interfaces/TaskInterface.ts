@@ -1,6 +1,5 @@
 export interface ITask {
   title: string,
-  description: string,
+  description?: string | undefined,
   status: boolean,
-  // id: string
 }
