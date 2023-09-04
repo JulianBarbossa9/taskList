@@ -1,25 +1,48 @@
 import { dateToString } from "@/helpers/dateUtils";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Task } from "@prisma/client";
 import { AiOutlineEdit, AiFillDelete } from "react-icons/ai";
 import { BiCheckboxChecked, BiCheckboxMinus } from "react-icons/bi";
 import Link from "next/link";
 import { TaskContext } from "@/context/TaskProvider";
 import useTask from "@/hooks/useTasks";
+import { ITask } from "@/interfaces/TaskInterface";
 
 type Props = {
   task: Task;
 };
 
+
 export default function Task({ task }: Props) {
-  const { deleteTask, listTask } = useTask(true);
+  const { deleteTask, editTask } = useTask(true);
+ 
+  const [ isChecked, setIsChecked ] = useState(task.status)
+
+  const handleCheckboxClic = () => {
+    setIsChecked(!isChecked)
+    const updateTask = {
+      ...task,
+      status: !isChecked,
+      description: task.description ?? undefined
+    }
+    editTask(updateTask, task.id)
+    
+  }
 
   return (
     <div className="flex">
+     
       <div
         key={task.id}
         className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl "
-      >
+        >
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxClic}
+          // onClick={() => editTask(task, task.id)}
+        />
+        
         <h3 className="font-bold mb-3 text-gray-700 uppercase">
           Title: {""}
           <span className="font-normal normal-case">{task.title}</span>
