@@ -17,7 +17,7 @@ const useTask = (ignoreFetch?: boolean) => {
   const getTasks = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/api/task");
+      const res = await axios.get("/api/task");
       setListTask!(res.data);
     } catch (error) {
       console.error(error);
