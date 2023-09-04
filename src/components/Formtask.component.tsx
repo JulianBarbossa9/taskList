@@ -61,7 +61,7 @@ const FormTask = ({ selectedTask }: Props) => {
 
   const handleSubmit = async(event: SyntheticEvent) => {
     event.preventDefault()
-    if (!inputValue.title.trim() || !inputValue.description && !inputValue.description?.trim()) {
+    if (!inputValue.title.trim()) {
       setError(true);
       return;
     }
@@ -98,7 +98,7 @@ const FormTask = ({ selectedTask }: Props) => {
         }}
       >
         {/* todo: ERROR */}
-        { error && <Error>Fill all fields</Error>}
+        { error && <Error>the title field is required</Error>}
         <div className="mb-5">
           <label
             htmlFor="title"
