@@ -37,11 +37,15 @@ export default function Task({ task }: Props) {
         className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl "
         >
         <input
+          id="green-checkbox"
           type="checkbox"
+          value={''}
           checked={isChecked}
           onChange={handleCheckboxClic}
+          className="w-6 h-6 text-green-600  border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 mb-4"
           // onClick={() => editTask(task, task.id)}
         />
+
         
         <h3 className="font-bold mb-3 text-gray-700 uppercase">
           Title: {""}
