@@ -9,6 +9,9 @@ export interface useTasxResponse {
   getTask: Promise<Task[]>;
   createTask: Promise<Task>;
 }
+/**
+ * create a custom hook for making API calls
+ */
 
 const useTask = (ignoreFetch?: boolean) => {
   const { listTask, setListTask } = useContext(TaskContext);
