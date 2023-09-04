@@ -1,5 +1,8 @@
 # Technical Test of the Company __Gudfy__
 
+> [!IMPORTANT]
+> Have installed one of the following node versions 16.13 / 18.X / 20.X
+
 This project was made with NextJS 13, TailwindCSS, PostgreSQL and Prisma
 
 
