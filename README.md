@@ -1,4 +1,4 @@
-# Technical Test of the Company __Gudfy__
+#Task List
 
 > [!IMPORTANT]
 > Have installed one of the following node versions 16.13 / 18.X / 20.X
